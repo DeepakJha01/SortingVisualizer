@@ -5,7 +5,7 @@ import math
 import random
 from tkinter import *
 from tkinter import ttk
-from mergesort import mergeSort
+#from mergesort import mergeSort
 from bubblesort import bubbleSort
 from selectionsort import selectionSort
 
@@ -20,7 +20,7 @@ root.maxsize(root_width,root_height)   #(width,height)
 root.config(bg='black')
 
 #----GLOBAL VARIABLES---------
-allAlgos = ['Selection Sort','Bubble Sort','Merge Sort']
+allAlgos = ['Selection Sort','Bubble Sort']
 selectedAlgo = StringVar()
 pauseBool = False
 arr = []
@@ -72,7 +72,7 @@ def displayArray(arr,arrayColor,opCount):
 
         outputCanvas.create_rectangle(x0,y0,x1,y1, fill = arrayColor[i])
 
-    ##display opCount
+    ##display swapCount
     swapCountLabel = Label(outputCanvas,text = '#Swap Count : '+str(opCount),fg = 'white',bg = 'black',font = ('Comic Sans MS',12))
     outputCanvas.create_window(80,20,window = swapCountLabel)
 
@@ -87,8 +87,6 @@ def startSort():
     elif algoCombo.get() == 'Selection Sort':
         selectionSort(arr,displayArray,sortSpeed.get(),pauseBool)
 
-    elif algoCombo.get() == 'Merge Sort':
-        mergeSort(arr,displayArray,sortSpeed.get(),pauseBool)
 
 # def pauseSort():
 #     global pauseBool
