@@ -5,7 +5,7 @@ import math
 import random
 from tkinter import *
 from tkinter import ttk
-#from mergesort import mergeSort
+from mergesort import mergeSort
 from bubblesort import bubbleSort
 from selectionsort import selectionSort
 
@@ -20,7 +20,7 @@ root.maxsize(root_width,root_height)   #(width,height)
 root.config(bg='black')
 
 #----GLOBAL VARIABLES---------
-allAlgos = ['Selection Sort','Bubble Sort']
+allAlgos = ['Selection Sort','Bubble Sort','Merge Sort']
 selectedAlgo = StringVar()
 pauseBool = False
 arr = []
@@ -87,6 +87,8 @@ def startSort():
     elif algoCombo.get() == 'Selection Sort':
         selectionSort(arr,displayArray,sortSpeed.get(),pauseBool)
 
+    elif algoCombo.get() == 'Merge Sort':
+        mergeSort(arr,displayArray,sortSpeed.get(),pauseBool,0,len(arr)-1)
 
 # def pauseSort():
 #     global pauseBool
@@ -101,7 +103,7 @@ def startSort():
 inputFrame = Frame(root,height = 200,width = 950,bg = 'black')
 inputFrame.grid(row = 0,column = 0,padx = 10,pady = 10)
 
-outputCanvas = Canvas(root,height = 400,width = 950,bg = 'yellow')
+outputCanvas = Canvas(root,height = 400,width = 950,bg = '#99ffff')
 outputCanvas.grid(row = 1,column = 0,padx = 10,pady = 10)
 
 #--input frame-------------------------------------------------------
