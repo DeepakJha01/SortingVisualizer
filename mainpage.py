@@ -9,7 +9,7 @@ from mergesort import mergeSort
 from quicksort import quickSort
 from bubblesort import bubbleSort
 from selectionsort import selectionSort
-from tkinter.scrolledtext import ScrolledText
+# from tkinter.scrolledtext import ScrolledText
 #---end import section---------------------
 
 
@@ -124,17 +124,17 @@ generate.grid(row = 0,column = 2,padx = 5,pady = 5)
 dataSize = Scale(inputFrame,from_ = 3,to = 100,resolution = 1,length = 400,width = 15,orient = HORIZONTAL,label = 'Data Size [n]',font = ('Comic Sans MS',10))
 dataSize.grid(row = 1,column = 0,padx = 5,pady = 5,columnspan = 2)
 
-enter = Button(inputFrame,text = 'Enter->',fg = 'black',bg = '#99ffff',height = 1,width = 10,font = ('Comic Sans MS',14),command = '' )
-enter.grid(row = 1,column = 2,padx = 5,pady = 5)
+# enter = Button(inputFrame,text = 'Enter->',fg = 'black',bg = '#99ffff',height = 1,width = 10,font = ('Comic Sans MS',14),command = '' )
+# enter.grid(row = 1,column = 2,padx = 5,pady = 5)
 
 sortSpeed = Scale(inputFrame,from_ = 1,to = 100,resolution = 0.1,length = 400,width = 15,orient = HORIZONTAL,label = 'Sorting Speed [s]',font = ('Comic Sans MS',10))
 sortSpeed.grid(row = 2,column = 0,padx = 5,pady = 5,columnspan = 2)
 
-play = Button(inputFrame,text = 'Play',fg = 'black',bg = '#00ff00',height = 1,width = 10,font = ('Comic Sans MS',14),command = startSort )
-play.grid(row = 2,column = 2,padx = 5,pady = 5)
+play = Button(inputFrame,text = 'Play',fg = 'black',bg = '#00ff00',height = 5,width = 10,font = ('Comic Sans MS',14),command = startSort )
+play.grid(row = 1,column = 2,padx = 5,pady = 5,rowspan = 2)
 
-xxx = ScrolledText(inputFrame,width = 20,height = 12)
-xxx.grid(row = 0,column = 3,padx = 5,pady = 5,rowspan = 3)
+# xxx = ScrolledText(inputFrame,width = 20,height = 12)
+# xxx.grid(row = 0,column = 3,padx = 5,pady = 5,rowspan = 3)
 
 #--output frame------------------------------------------------------
     #---displayArray---
