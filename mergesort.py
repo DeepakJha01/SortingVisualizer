@@ -4,9 +4,10 @@ max_time = 0.250
 swapCount = 0
 
 ##---to reset swap count
-def mergeSort(arr,displayArray,speedInput,pauseBool,start,end):
+def mergeSort(arr,displayArray,speedInput,pauseBool):
     global swapCount
     swapCount = 0
+    start, end = 0, len(arr) - 1
     merge_sort(arr,displayArray,speedInput,pauseBool,start,end)
 
 
