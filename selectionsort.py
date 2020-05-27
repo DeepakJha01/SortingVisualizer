@@ -3,7 +3,7 @@ import time
 max_time = 0.250
 
 #finds the minimum value of the remaining array everytime
-def selectionSort(arr,displayArray,speedInput,pauseBool):
+def selectionSort(arr, displayArray, speedInput, pauseBool):
     swapCount = 0
     N = len(arr)
     for i in range(N):
@@ -17,17 +17,16 @@ def selectionSort(arr,displayArray,speedInput,pauseBool):
                 colorArray[j] = 'blue'
                 colorArray[min_ind] = 'blue'
 
-                displayArray(arr,colorArray,swapCount)
+                displayArray(arr, colorArray, swapCount)
                 time.sleep(max_time - (speedInput * max_time / 100))
 
-        arr[i],arr[min_ind] = arr[min_ind],arr[i]
-        swapCount+=1
+        arr[i], arr[min_ind] = arr[min_ind], arr[i]
+        swapCount += 1
         # colorArray = ['green' if x<=i else 'red' for x in range(len(arr))]
         colorArray = ['green'] * (i + 1) + ['red'] * (N - i - 1)
-        displayArray(arr,colorArray,swapCount)
+        displayArray(arr, colorArray, swapCount)
         time.sleep(max_time - (speedInput * max_time / 100))
 
     colorArray = ['green'] * N
     displayArray(arr, colorArray, swapCount)
     print("Sorted arr : ", arr)
-
