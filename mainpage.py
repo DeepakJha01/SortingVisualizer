@@ -70,7 +70,7 @@ def displayArray(arr,arrayColor,opCount):
     swapCountLabel = Label(outputCanvas,text = '#Swap Count : '+str(opCount),fg = 'white',bg = 'black',font = ('Comic Sans MS',12))
     outputCanvas.create_window(80,20,window = swapCountLabel)
 
-    root.update_idletasks()
+    root.update()
 
 # Map from string to sorting function
 lookup = {
