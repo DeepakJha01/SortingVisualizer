@@ -49,7 +49,7 @@ def _partition(arr, displayArray, speedInput, pauseBool, low, high):
     arr[high], arr[pointer] = arr[pointer], arr[high]
     swapCount += 1
 
-    colorArray = ['green' for x in range(len(arr))]
+    colorArray = ['green'] * len(arr)
     displayArray(arr, colorArray, swapCount)
 
     return pointer
