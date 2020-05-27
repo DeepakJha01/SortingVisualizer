@@ -3,11 +3,13 @@ import time
 max_time = 0.250
 swapCount = 0
 
+
 def quickSort(arr, displayArray, speedInput, pauseBool):
     global swapCount
     swapCount = 0
     low, high = 0, len(arr) - 1
     _quick_sort(arr, displayArray, speedInput, pauseBool, low, high)
+
 
 def _quick_sort(arr, displayArray, speedInput, pauseBool, low, high):
     if low < high:
@@ -16,7 +18,6 @@ def _quick_sort(arr, displayArray, speedInput, pauseBool, low, high):
 
         _quick_sort(arr, displayArray, speedInput, pauseBool, low, partInd-1)
         _quick_sort(arr, displayArray, speedInput, pauseBool, partInd+1, high)
-
 
 
 ##--taking last element as pivot
@@ -56,22 +57,13 @@ def _partition(arr, displayArray, speedInput, pauseBool, low, high):
 
 
 def generateColorArray(low, high, pointer, curr_ind, n, swapping):
-    colorArray = []
+    colorArray = ['#996633'] * n
+    colorArray[low:high + 1] = ['yellow'] * (high - low + 1)
+    colorArray[pointer] = 'black'
+    colorArray[high] = 'red'
+    colorArray[curr_ind] = 'blue'
 
-    for i in range(n):
-        if low <= i <= high:
-            colorArray.append('yellow')##our range
-        else:
-            colorArray.append('#996633')##general
-
-        if i == pointer:
-            colorArray[i] = 'black'##pointer
-        elif i == high:
-            colorArray[i] = 'red'##pivot
-        elif i == curr_ind:
-            colorArray[i] = 'blue'
-
-        if swapping:
-            if i == curr_ind or i == pointer:
-                colorArray[i] = 'green'
+    if swapping:
+        colorArray[curr_ind] = 'green'
+        colorArray[pointer] = 'green'
     return colorArray
