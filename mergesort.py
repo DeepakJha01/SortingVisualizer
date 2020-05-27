@@ -4,36 +4,32 @@ max_time = 0.250
 swapCount = 0
 
 ##---to reset swap count
-def mergeSort(arr,displayArray,speedInput,pauseBool):
+def mergeSort(arr, displayArray, speedInput, pauseBool):
     global swapCount
     swapCount = 0
     start, end = 0, len(arr) - 1
-    merge_sort(arr,displayArray,speedInput,pauseBool,start,end)
+    merge_sort(arr, displayArray, speedInput, pauseBool, start, end)
 
 
 # divides the array recursively into two parts then sorts
-def merge_sort(arr,displayArray,speedInput,pauseBool,start,end):
+def merge_sort(arr, displayArray, speedInput, pauseBool, start, end):
     if start<end:
         mid = (start+end) // 2
-        merge_sort(arr,displayArray,speedInput,pauseBool,start,mid)
-        merge_sort(arr,displayArray,speedInput,pauseBool,mid+1,end)
-        merge(arr,displayArray,speedInput,pauseBool,start,mid,end)
+        merge_sort(arr, displayArray, speedInput, pauseBool, start, mid)
+        merge_sort(arr, displayArray, speedInput, pauseBool, mid+1, end)
+        merge(arr, displayArray, speedInput, pauseBool, start, mid, end)
 
 
-def merge(arr,displayArray,speedInput,pauseBool,start,mid,end):
+def merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
     global swapCount
 
+    N = len(arr)
     #--highlight the left and the right parts of the array
-    colorArray = []
-    for i in range(len(arr)):
-        if i>=start and i<=mid:
-            colorArray.append('#ffff00')
-        elif i>=mid+1 and i<=end:
-            colorArray.append('#5200cc')
-        else:
-            colorArray.append('red')
+    colorArray = ['red'] * N
+    colorArray[start:mid + 1] = ['#ffff00'] * (mid - start + 1)
+    colorArray[mid + 1:end + 1] = ['#5200cc'] * (end - mid + 1)
 
-    displayArray(arr,colorArray,swapCount)
+    displayArray(arr, colorArray, swapCount)
     time.sleep(max_time - (speedInput * max_time / 100))
 
     arrL = arr[start:mid+1]
@@ -44,41 +40,37 @@ def merge(arr,displayArray,speedInput,pauseBool,start,mid,end):
     while (i < len(arrL) and j < len(arrR)):
         if arrL[i] < arrR[j]:
             arr[k] = arrL[i]
-            swapCount+=1
-            i+=1
-            for x in range(start,k):
-                colorArray[x] = 'green'
+            swapCount += 1
+            i += 1
+            colorArray[start:k] = ['green'] * (k - start)
             displayArray(arr, colorArray, swapCount)
             time.sleep(max_time - (speedInput * max_time / 100))
         else:
             arr[k] = arrR[j]
-            swapCount+=1
-            j+=1
-            for x in range(start,k):
-                colorArray[x] = 'green'
+            swapCount += 1
+            j += 1
+            colorArray[start:k] = ['green'] * (k - start)
             displayArray(arr, colorArray, swapCount)
             time.sleep(max_time - (speedInput * max_time / 100))
 
         k+=1
 
     #check if anything left
-    while i<len(arrL):
+    while i < len(arrL):
         arr[k] = arrL[i]
         i += 1
         k += 1
-        swapCount+=1
-        for x in range(start, k ):
-            colorArray[x] = 'green'
+        swapCount  += 1
+        colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
         time.sleep(max_time - (speedInput * max_time / 100))
 
-    while j<len(arrR):
+    while j < len(arrR):
         arr[k] = arrR[j]
         j += 1
         k += 1
-        swapCount+=1
-        for x in range(start, k ):
-            colorArray[x] = 'green'
+        swapCount += 1
+        colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
         time.sleep(max_time - (speedInput * max_time / 100))
 
