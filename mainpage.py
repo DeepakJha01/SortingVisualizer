@@ -30,10 +30,9 @@ arr = []
 def generateRandomArray():
     #random array of non-repeating n elements
     global arr
-    arr = []
     n = int(dataSize.get())
-    for i in range(1,n+1):
-        arr.append(i)
+    arr = list(range(1, n + 1))
+    random.shuffle(arr)
 
     #random shuffle
     for i in range(n-1,0,-1):
