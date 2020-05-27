@@ -4,7 +4,7 @@ import time
 import math
 import random
 
-from tkinter import *
+from tkinter import Canvas, Frame, StringVar, Tk, Label, Button, Scale, HORIZONTAL
 from tkinter import ttk
 
 from mergesort import mergeSort
