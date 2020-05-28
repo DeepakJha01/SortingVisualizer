@@ -11,6 +11,7 @@ from mergesort import mergeSort
 from quicksort import quickSort
 from bubblesort import bubbleSort
 from selectionsort import selectionSort
+from heapsort import heapSort
 
 #---end import section---------------------
 
@@ -23,7 +24,9 @@ root.maxsize(root_width,root_height)   #(width,height)
 root.config(bg='black')
 
 #----GLOBAL VARIABLES---------
-allAlgos = ('Bubble Sort','Merge Sort','Quick Sort','Selection Sort')
+allAlgos = (
+    'Bubble Sort','Merge Sort','Quick Sort','Selection Sort', 'Heap Sort',
+)
 selectedAlgo = StringVar()
 pauseBool = False
 arr = []
@@ -78,6 +81,7 @@ lookup = {
     'Selection Sort': selectionSort,
     'Merge Sort': mergeSort,
     'Quick Sort': quickSort,
+    'Heap Sort': heapSort,
 }
 
 
