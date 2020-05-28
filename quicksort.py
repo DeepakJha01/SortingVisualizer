@@ -26,7 +26,15 @@ def _partition(arr, displayArray, speedInput, pauseBool, low, high):
     global swapCount
 
     pointer = low
-    pivot = arr[high]
+    count = high - low
+    pivots = sorted(
+        ((arr[low + i], low + i) for i in (0, count // 4, count // 2, 3 * count // 4, count))
+    )
+    # pivot = arr[high]
+    pivot, pivot_pos = pivots[2]
+    if pivot_pos != high:
+        arr[pivot_pos], arr[high] = arr[high], arr[pivot_pos]
+        swapCount += 1
 
     displayArray(arr, generateColorArray(low, high, pointer, pointer, len(arr), False), swapCount)
     time.sleep(max_time - (speedInput * max_time / 100))
