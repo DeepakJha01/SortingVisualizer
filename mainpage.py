@@ -45,7 +45,8 @@ def generateRandomArray():
     displayArray(arr,arrayColor,swapCount)
 
 def normalizeArray(arr):
-    return [i / max(arr) for i in arr]
+    m = max(arr)
+    return [i / m for i in arr]
 
 def displayArray(arr,arrayColor,opCount):
     outputCanvas.delete('all')
