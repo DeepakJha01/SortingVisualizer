@@ -23,7 +23,7 @@ def heapSort(arr, displayArray, speedInput, pauseBool):
         arr[i], arr[0] = arr[0], arr[i]
         swapCount += 1
         colorArray = ['red'] * N
-        colorArray[0] = ['blue']
+        colorArray[0] = 'blue'
         colorArray[i:] = ['green'] * (N - i)
         displayArray(arr, colorArray, swapCount)
         time.sleep(max_time - (speedInput*max_time/100))
@@ -38,8 +38,8 @@ def heapSort(arr, displayArray, speedInput, pauseBool):
             if highest != parent:
                 arr[highest], arr[parent] = arr[parent], arr[highest]
                 swapCount += 1
-                colorArray[parent] = ['blue']
-                colorArray[highest] = ['yellow']
+                colorArray[parent] = 'blue'
+                colorArray[highest] = 'yellow'
                 displayArray(arr, colorArray, swapCount)
                 time.sleep(max_time - (speedInput*max_time/100))
             else:
