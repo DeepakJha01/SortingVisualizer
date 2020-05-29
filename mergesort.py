@@ -14,7 +14,7 @@ def mergeSort(arr, displayArray, speedInput, pauseBool):
 # divides the array recursively into two parts then sorts
 def _merge_sort(arr, displayArray, speedInput, pauseBool, start, end):
     if start < end:
-        mid = (start+end) // 2
+        mid = (start + end) // 2
         _merge_sort(arr, displayArray, speedInput, pauseBool, start, mid)
         _merge_sort(arr, displayArray, speedInput, pauseBool, mid + 1, end)
         _merge(arr, displayArray, speedInput, pauseBool, start, mid, end)
