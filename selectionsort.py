@@ -18,7 +18,7 @@ def selectionSort(arr, displayArray, speedInput, pauseBool):
                 colorArray[min_ind] = 'blue'
 
                 displayArray(arr, colorArray, swapCount)
-                time.sleep(max_time - (speedInput * max_time / 100))
+                time.sleep(max_time - (speedInput() * max_time / 100))
 
         arr[i], arr[min_ind] = arr[min_ind], arr[i]
         swapCount += 1
@@ -26,7 +26,7 @@ def selectionSort(arr, displayArray, speedInput, pauseBool):
         colorArray = ['red'] * N
         colorArray[0:i + 1] = ['green'] * (i + 1)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
     colorArray = ['green'] * N
     displayArray(arr, colorArray, swapCount)

@@ -89,7 +89,7 @@ lookup = {
 def startSort():
     global arr
     fn = lookup[algoCombo.get()]
-    fn(arr,displayArray,sortSpeed.get(),pauseBool)
+    fn(arr, displayArray, sortSpeed.get, pauseBool)
 
 
 #----User Interface Section---------------------------------------------------------------------------------------------

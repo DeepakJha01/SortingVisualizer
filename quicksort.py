@@ -37,23 +37,23 @@ def _partition(arr, displayArray, speedInput, pauseBool, low, high):
         swapCount += 1
 
     displayArray(arr, generateColorArray(low, high, pointer, pointer, len(arr), False), swapCount)
-    time.sleep(max_time - (speedInput * max_time / 100))
+    time.sleep(max_time - (speedInput() * max_time / 100))
 
     for j in range(low, high):
 
         if arr[j] < pivot:
             displayArray(arr, generateColorArray(low, high, pointer, j, len(arr), True), swapCount)
-            time.sleep(max_time - (speedInput * max_time / 100))
+            time.sleep(max_time - (speedInput() * max_time / 100))
 
             arr[j], arr[pointer] = arr[pointer], arr[j]
             pointer += 1
             swapCount += 1
 
         displayArray(arr, generateColorArray(low, high, pointer, j, len(arr), False), swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
     displayArray(arr, generateColorArray(low, high, pointer, high, len(arr), False), swapCount)
-    time.sleep(max_time - (speedInput * max_time / 100))
+    time.sleep(max_time - (speedInput() * max_time / 100))
 
     arr[high], arr[pointer] = arr[pointer], arr[high]
     swapCount += 1

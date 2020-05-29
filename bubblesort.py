@@ -20,7 +20,7 @@ def bubbleSort(arr, displayArray, speedInput, pauseBool):
                     colorArray[-i:] = ['green'] * i
 
                 displayArray(arr, colorArray, swapCount)
-                time.sleep(max_time - (speedInput*max_time/100))
+                time.sleep(max_time - (speedInput() * max_time / 100))
                 swapped = True
 
         if not swapped:

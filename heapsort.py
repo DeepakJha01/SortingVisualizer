@@ -16,7 +16,7 @@ def heapSort(arr, displayArray, speedInput, pauseBool):
                 colorArray[parent] = ['blue']
                 colorArray[heap_length] = ['yellow']
                 displayArray(arr, colorArray, swapCount)
-                time.sleep(max_time - (speedInput*max_time/100))
+                time.sleep(max_time - (speedInput() * max_time / 100))
             heap_length = parent
 
     for i in reversed(range(N)):
@@ -26,7 +26,7 @@ def heapSort(arr, displayArray, speedInput, pauseBool):
         colorArray[0] = 'blue'
         colorArray[i:] = ['green'] * (N - i)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput*max_time/100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
         parent = 0
         while parent < i:
@@ -41,7 +41,7 @@ def heapSort(arr, displayArray, speedInput, pauseBool):
                 colorArray[parent] = 'blue'
                 colorArray[highest] = 'yellow'
                 displayArray(arr, colorArray, swapCount)
-                time.sleep(max_time - (speedInput*max_time/100))
+                time.sleep(max_time - (speedInput() * max_time / 100))
             else:
                 break
             parent = highest

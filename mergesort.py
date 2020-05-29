@@ -31,7 +31,7 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
         colorArray[lower:upper] = [color] * (upper - lower)
 
     displayArray(arr, colorArray, swapCount)
-    time.sleep(max_time - (speedInput * max_time / 100))
+    time.sleep(max_time - (speedInput() * max_time / 100))
 
     arrL = arr[start:mid+1]
     arrR = arr[mid + 1:end + 1]
@@ -49,7 +49,7 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
         swapCount += 1
         colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
         k += 1
 
@@ -61,7 +61,7 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
         swapCount += 1
         colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
     while j < len(arrR):
         arr[k] = arrR[j]
@@ -70,6 +70,6 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
         swapCount += 1
         colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
     print("Sorted arr : ", arr)
