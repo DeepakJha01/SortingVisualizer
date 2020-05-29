@@ -14,8 +14,10 @@ def bubbleSort(arr, displayArray, speedInput, pauseBool):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapCount += 1
                 colorArray = ['red'] * N
-                colorArray[j:j + 2] = ['blue']  * 2
-                colorArray[-i -1:] = ['green'] * (i + 1)
+                colorArray[j] = 'blue'
+                colorArray[j + 1] = 'blue'
+                if i:
+                    colorArray[-i:] = ['green'] * i
 
                 displayArray(arr, colorArray, swapCount)
                 time.sleep(max_time - (speedInput*max_time/100))
