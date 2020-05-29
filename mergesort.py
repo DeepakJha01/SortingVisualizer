@@ -41,18 +41,15 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
     while (i < len(arrL) and j < len(arrR)):
         if arrL[i] < arrR[j]:
             arr[k] = arrL[i]
-            swapCount += 1
             i += 1
-            colorArray[start:k] = ['green'] * (k - start)
-            displayArray(arr, colorArray, swapCount)
-            time.sleep(max_time - (speedInput * max_time / 100))
         else:
             arr[k] = arrR[j]
-            swapCount += 1
             j += 1
-            colorArray[start:k] = ['green'] * (k - start)
-            displayArray(arr, colorArray, swapCount)
-            time.sleep(max_time - (speedInput * max_time / 100))
+
+        swapCount += 1
+        colorArray[start:k] = ['green'] * (k - start)
+        displayArray(arr, colorArray, swapCount)
+        time.sleep(max_time - (speedInput * max_time / 100))
 
         k += 1
 
