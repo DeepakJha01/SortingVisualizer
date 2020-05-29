@@ -26,8 +26,9 @@ def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
     N = len(arr)
     #--highlight the left and the right parts of the array
     colorArray = ['red'] * N
-    colorArray[start:mid + 1] = ['#ffff00'] * (mid - start + 1)
-    colorArray[mid + 1:end + 1] = ['#5200cc'] * (end - mid + 1)
+    colorCoords = ((start, mid + 1, '#ffff00'), (mid + 1, end + 1, '#5200cc'))
+    for lower, upper, color in colorCoords:
+        colorArray[lower:upper] = [color] * (upper - lower)
 
     displayArray(arr, colorArray, swapCount)
     time.sleep(max_time - (speedInput * max_time / 100))
