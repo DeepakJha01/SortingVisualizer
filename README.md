@@ -5,3 +5,4 @@ This is a visualization tool for various sorting algorithms
 2.SelectionSort<br>
 3.MergeSort<br>
 4.QuickSort<br>
+5.HeapSor<br>
