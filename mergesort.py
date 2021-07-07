@@ -4,81 +4,72 @@ max_time = 0.250
 swapCount = 0
 
 ##---to reset swap count
-def mergeSort(arr,displayArray,speedInput,pauseBool,start,end):
+def mergeSort(arr, displayArray, speedInput, pauseBool):
     global swapCount
     swapCount = 0
-    merge_sort(arr,displayArray,speedInput,pauseBool,start,end)
+    start, end = 0, len(arr) - 1
+    _merge_sort(arr, displayArray, speedInput, pauseBool, start, end)
 
 
 # divides the array recursively into two parts then sorts
-def merge_sort(arr,displayArray,speedInput,pauseBool,start,end):
-    if start<end:
-        mid = (start+end) // 2
-        merge_sort(arr,displayArray,speedInput,pauseBool,start,mid)
-        merge_sort(arr,displayArray,speedInput,pauseBool,mid+1,end)
-        merge(arr,displayArray,speedInput,pauseBool,start,mid,end)
+def _merge_sort(arr, displayArray, speedInput, pauseBool, start, end):
+    if start < end:
+        mid = (start + end) // 2
+        _merge_sort(arr, displayArray, speedInput, pauseBool, start, mid)
+        _merge_sort(arr, displayArray, speedInput, pauseBool, mid + 1, end)
+        _merge(arr, displayArray, speedInput, pauseBool, start, mid, end)
 
 
-def merge(arr,displayArray,speedInput,pauseBool,start,mid,end):
+def _merge(arr, displayArray, speedInput, pauseBool, start, mid, end):
     global swapCount
 
+    N = len(arr)
     #--highlight the left and the right parts of the array
-    colorArray = []
-    for i in range(len(arr)):
-        if i>=start and i<=mid:
-            colorArray.append('#ffff00')
-        elif i>=mid+1 and i<=end:
-            colorArray.append('#5200cc')
-        else:
-            colorArray.append('red')
+    colorArray = ['red'] * N
+    colorCoords = ((start, mid + 1, '#ffff00'), (mid + 1, end + 1, '#5200cc'))
+    for lower, upper, color in colorCoords:
+        colorArray[lower:upper] = [color] * (upper - lower)
 
-    displayArray(arr,colorArray,swapCount)
-    time.sleep(max_time - (speedInput * max_time / 100))
+    displayArray(arr, colorArray, swapCount)
+    time.sleep(max_time - (speedInput() * max_time / 100))
 
     arrL = arr[start:mid+1]
-    arrR = arr[mid+1:end+1]
+    arrR = arr[mid + 1:end + 1]
 
-    i, j, k = 0, 0,start # i->arrL;   j->arrR;   k->arr
+    i, j, k = 0, 0, start # i->arrL;   j->arrR;   k->arr
 
     while (i < len(arrL) and j < len(arrR)):
         if arrL[i] < arrR[j]:
             arr[k] = arrL[i]
-            swapCount+=1
-            i+=1
-            for x in range(start,k):
-                colorArray[x] = 'green'
-            displayArray(arr, colorArray, swapCount)
-            time.sleep(max_time - (speedInput * max_time / 100))
+            i += 1
         else:
             arr[k] = arrR[j]
-            swapCount+=1
-            j+=1
-            for x in range(start,k):
-                colorArray[x] = 'green'
-            displayArray(arr, colorArray, swapCount)
-            time.sleep(max_time - (speedInput * max_time / 100))
+            j += 1
 
-        k+=1
+        swapCount += 1
+        colorArray[start:k] = ['green'] * (k - start)
+        displayArray(arr, colorArray, swapCount)
+        time.sleep(max_time - (speedInput() * max_time / 100))
+
+        k += 1
 
     #check if anything left
-    while i<len(arrL):
+    while i < len(arrL):
         arr[k] = arrL[i]
         i += 1
         k += 1
-        swapCount+=1
-        for x in range(start, k ):
-            colorArray[x] = 'green'
+        swapCount += 1
+        colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
-    while j<len(arrR):
+    while j < len(arrR):
         arr[k] = arrR[j]
         j += 1
         k += 1
-        swapCount+=1
-        for x in range(start, k ):
-            colorArray[x] = 'green'
+        swapCount += 1
+        colorArray[start:k] = ['green'] * (k - start)
         displayArray(arr, colorArray, swapCount)
-        time.sleep(max_time - (speedInput * max_time / 100))
+        time.sleep(max_time - (speedInput() * max_time / 100))
 
-    print("Sorted arr : ",arr)
+    print("Sorted arr : ", arr)
